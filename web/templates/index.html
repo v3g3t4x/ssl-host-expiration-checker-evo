@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>Gestione Domini</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5">Gestione Domini</h1>
+
+      <a href="{{ url_for('logout') }}" class="btn btn-secondary mb-3">Logout</a>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }} mt-3">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <form action="{{ url_for('add_domain') }}" method="post" class="mb-3">
+        <div class="input-group">
+          <input type="text" class="form-control" name="domain" placeholder="Aggiungi un dominio">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Aggiungi</button>
+          </div>
+        </div>
+      </form>
+
+      <ul class="list-group">
+        {% for domain in domains %}
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ domain }}
+            <a href="{{ url_for('delete_domain', domain=domain) }}" class="btn btn-danger btn-sm">Cancella</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>
