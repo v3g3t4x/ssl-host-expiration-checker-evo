@@ -414,18 +414,4 @@ You can make any changes to the script code and fork this script, provided that 
 ![Manjaro](https://img.shields.io/badge/Manjaro-35BF5C?style=for-the-badge&logo=Manjaro&logoColor=white)
 ![macOS](https://img.shields.io/badge/mac%20os-000000?style=for-the-badge&logo=macos&logoColor=F0F0F0)
 
-- Sorry for my bad English. And on the other hand, which of you can boast of knowing the great and mighty Russian language? Have any of you read Pushkin, Tolstoy, Dostoyevsky, Gogol, Bulgakov in the original...? It's a joke.
-- The program code of the script is not perfect. But please forgive me for that.
-- Glory to the E = mc &sup2; !
-- I wish you all good luck!
 
-## A final plea
-It's time to put an end to Facebook. Working there is not ethically neutral: every day that you go into work, you are doing something wrong. If you have a Facebook account, delete it. If you work at Facebook, quit.
-
-And let us not forget that the National Security Agency must be destroyed.
-
-*(c) [David Fifield](mailto:david@bamsoftware.com)*
-
----
-
-> Best regards, ak545 ( ru.mail&copy;ak545&sup2; )
