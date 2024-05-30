@@ -59,7 +59,7 @@ def login():
             user = User(username)
             login_user(user)
             flash('Accesso effettuato con successo!', 'success')
-            return redirect(url_for('index'))
+            return redirect(url_for('index'))  # Redirige alla homepage protetta
         else:
             flash('Nome utente o password errati.', 'danger')
     return render_template('login.html')
@@ -70,6 +70,33 @@ def logout():
     logout_user()
     flash('Disconnesso con successo!', 'success')
     return redirect(url_for('login'))
+
+@app.route('/settings', methods=['GET', 'POST'])
+@login_required
+def settings():
+    if request.method == 'POST':
+        email = request.form['email']
+        days = request.form['days']
+        valid = True
+
+        if not validators.email(email):
+            flash('Indirizzo email non valido.', 'danger')
+            valid = False
+        
+        if not days.isdigit():
+            flash('Il campo "Numero di giorni" deve contenere solo numeri.', 'danger')
+            valid = False
+        
+        if valid:
+            r.set('alert_email', email)
+            r.set('alert_days', days)
+            flash('Impostazioni salvate con successo!', 'success')
+            return redirect(url_for('settings'))
+
+    email = r.get('alert_email')
+    days = r.get('alert_days')
+
+    return render_template('settings.html', email=email.decode('utf-8') if email else '', days=days.decode('utf-8') if days else '')
 
 if __name__ == '__main__':
     app.run(debug=True)

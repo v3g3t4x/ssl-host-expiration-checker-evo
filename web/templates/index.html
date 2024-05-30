@@ -10,7 +10,10 @@
     <div class="container">
       <h1 class="mt-5">Gestione Domini</h1>
 
-      <a href="{{ url_for('logout') }}" class="btn btn-secondary mb-3">Logout</a>
+      <div class="mb-3">
+        <a href="{{ url_for('settings') }}" class="btn btn-secondary">Impostazioni</a>
+        <a href="{{ url_for('logout') }}" class="btn btn-secondary">Logout</a>
+      </div>
 
       {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}

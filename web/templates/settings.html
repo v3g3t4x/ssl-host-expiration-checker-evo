@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>Impostazioni</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5">Impostazioni</h1>
+
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+          {% for category, message in messages %}
+            <div class="alert alert-{{ category }} mt-3">
+              {{ message }}
+            </div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+
+      <form action="{{ url_for('settings') }}" method="post" class="mb-3">
+        <div class="form-group">
+          <label for="email">Indirizzo Email per gli Avvisi</label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ email }}">
+        </div>
+        <div class="form-group">
+          <label for="days">Numero di Giorni</label>
+          <input type="text" class="form-control" id="days" name="days" placeholder="Numero di giorni" value="{{ days }}">
+        </div>
+        <button type="submit" class="btn btn-primary">Salva Impostazioni</button>
+      </form>
+
+      <a href="{{ url_for('index') }}" class="btn btn-secondary">Torna alla Home</a>
+    </div>
+  </body>
+</html>
