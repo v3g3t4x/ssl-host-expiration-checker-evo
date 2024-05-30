@@ -1,4 +1,4 @@
-# SSL Host Expiration Checker from ak545
+# SSL Host Expiration Checker EVO
 ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)
 
 **ssl-check.py** - This is a python script to check expiration dates of ssl certificate registrations for your websites.
